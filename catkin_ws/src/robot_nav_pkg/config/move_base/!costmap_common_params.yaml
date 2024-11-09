@@ -1,0 +1,48 @@
+#This file contains common configuration options for the two costmaps used in the navigation stack for more details on the parameters in this file, and a full list of the parameters used by the costmaps, please see http://www.ros.org/wiki/costmap_2d
+
+# footprint: [[0.72,0.35],[0.72,-0.35],[-0.2,-0.35],[-0.2,0.35]]
+# footprint: [[-0.68, -0.68], [-0.68, 0.68], [0.68, 0.68], [0.68, -0.68]]
+robot_radius: 0.6 #0.3 #0.8
+
+footprint_padding: 0.05 #0.08
+# footprint_padding: 0.2
+# footprint: [[0.72,0.00],[0.00,-0.35],[-0.2,0.00],[0.00,0.35]]
+map_type: voxel
+
+# inflation_layer:
+#   enabled:              true
+#   cost_scaling_factor:  5.0  # exponential rate at which the obstacle cost drops off (default: 10)
+#   inflation_radius:     0.7  # max. distance from an obstacle at which costs are incurred for planning paths.
+
+# static_layer:
+#   enabled:              true
+#   map_topic:            "map"
+#   lethal_cost_threshold: 80 
+
+# sonar_layer:
+# sonar_layer:
+#   enabled:            true
+#   clear_threshold:    0.2 #0.46
+#   inflate_cone:       0.3
+#   mark_threshold:     0.8 #0.55
+#   topics: [ "/Ultrasound1", "/Ultrasound3", "/Ultrasound4", "/Ultrasound5", "/Ultrasound6", "/Ultrasound7", "/Ultrasound8"]   # "/Ultrasound2",
+#   clear_on_max_reading: true
+  # ns : ( string , default : ”” ) 命名空间，用作所有topic的前缀；
+  # topics : (Array of strings , default : [‘/sonar’] ) 列举可以订阅的距离topic；
+  # no_readings_timeout : ( double , default : 0.0 ) 如果是0，该参数不起作用，否则如果层在该参数指定时间内没有收到传感器任何数据，层会给出warning并被标记为没有数据流；
+  # clear_threshold : ( double, default : .2 ) 概率比clear_threshold低的cell在master costmap中被标记为free空间；
+  # mark_threshold : ( double , default : .8 ) 概率比mark_threshold高的cell在master costmap中被标记为lethal obstacles；
+  # clear_on_max_reading : ( bool , default : false ) 是否将超出sonar最大距离清除。
+
+  #   Unless inflate_cone_ is set to 100 %, we update cells only within the (partially inflated) sensor cone,
+  #  projected on the costmap as a triangle. 0 % corresponds to just the triangle, but if your sensor fov is
+  #  very narrow, the covered area can become zero due to cell discretization. See wiki description for more
+  #  details
+
+# sonar_layer:
+#   enabled:            true
+#   clear_threshold:    0.2 #0.46
+#   inflate_cone:       0.3
+#   mark_threshold:     0.55 #0.8 #0.55
+#   topics: [ "/Ultrasound1", "/Ultrasound2", "/Ultrasound3", "/Ultrasound4", "/Ultrasound5", "/Ultrasound6", "/Ultrasound7", "/Ultrasound8"]   # "/Ultrasound2",
+#   clear_on_max_reading: true

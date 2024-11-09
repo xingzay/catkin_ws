@@ -1,0 +1,17 @@
+obstacle_range: 8.0
+#raytrace_range: 8.0
+raytrace_range: 15.0
+#footprint: [[-0.105, -0.105], [-0.105, 0.105], [0.041, 0.105], [0.041, -0.105]]
+robot_radius: 0.5
+#footprint: [[-0.66, -0.44], [-0.66, 0.44], [0.66, 0.44], [0.66, -0.44]]
+
+# inflation_radius: 0.2
+# cost_scaling_factor: 0.1
+
+
+map_type: costmap
+observation_sources: lidar virtual_wall
+# scan: {sensor_frame: rslidar, data_type: LaserScan, topic: /rslidar_laserscan, marking: true, clearing: true}
+# lidar: {sensor_frame: rslidar, data_type: PointCloud2, topic: /rslidar_points, marking: true, clearing: true}
+virtual_wall: {data_type: PointCloud2, topic: /virtual_wall_cloud, marking: true, clearing: true, obstacle_range: 100000, raytrace_range: 100000}
+track_unknown_space: true

@@ -1,0 +1,8 @@
+float64 max_vel_x
+float64 max_vel_x_backwards
+float64 max_vel_theta
+float64 acc_lim_x
+float64 acc_lim_theta
+---
+bool success
+string message

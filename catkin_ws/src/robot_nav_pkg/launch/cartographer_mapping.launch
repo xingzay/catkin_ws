@@ -1,0 +1,37 @@
+<launch>
+    <master auto="start"/>
+    <!-- <param name="use_sim_time" value="true" /> -->
+    <!-- Open Robot chassis -->
+
+    <!-- Cartographer -->
+
+    <node pkg="tf" type="static_transform_publisher" name="lidar2base" args="0.2125 0  0.552 0 0 0 /base_link /rslidar 10" />
+    <node pkg="tf" type="static_transform_publisher" name="lidar2imu" args="0 0 0 0 0 0 /rslidar /imu_link  10" />
+
+
+<!-- -configuration_directory $(find cartographer_ros)/configuration_files -->
+    <!-- <node name="cartographer_node" pkg="cartographer_ros"
+        type="cartographer_node" args="
+            -configuration_directory $(find robot_nav_pkg)/config/cartographer
+            -configuration_basename mapping.lua"
+        output="screen">
+        <remap from="scan" to="/rslidar_laserscan" />
+    </node>
+
+    <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.1" /> -->
+
+<!-- move_base -->
+  <!-- <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/param/costmap_common_params_scout.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/param/costmap_common_params_scout.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/global_planner_params.yaml" command="load" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/teb_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/move_base_params.yaml" command="load" />
+  </node> -->
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_nav_pkg)/config/rviz/slam.rviz" />
+
+</launch>

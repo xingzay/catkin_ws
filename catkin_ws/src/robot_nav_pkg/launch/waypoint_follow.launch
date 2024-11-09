@@ -1,0 +1,40 @@
+<launch>
+    <master auto="start"/>
+    <!-- Open Robot chassis -->
+
+    <!-- Cartographer -->
+
+  <!-- <param name="use_sim_time" value="true" /> -->
+    <!-- <node pkg="tf" type="static_transform_publisher" name="lidar2base" args="0.2125 0  0.552 0 0 0 /base_link /rslidar 10" /> -->
+
+    <arg name="map_file" default="/home/kc/cartographer_detailed_comments_ws-master/map/2d-1.yaml"/>
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+<!-- -configuration_directory $(find cartographer_ros)/configuration_files -->
+    <!-- <node name="cartographer_node" pkg="cartographer_ros"
+        type="cartographer_node" args="
+            -configuration_directory $(find robot_nav_pkg)/config/cartographer
+            -configuration_basename pure_localization.lua"
+        output="screen">
+        <remap from="scan" to="/rslidar_laserscan" />
+    </node>
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.1" /> -->
+
+<!-- move_base -->
+  <!-- <include file="$(find robot_nav_pkg)/launch/movebase.launch"/> -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/global_planner_params.yaml" command="load" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/teb_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find robot_nav_pkg)/config/move_base/waypoint_follow_params.yaml" command="load" />
+  </node>
+      
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_nav_pkg)/config/rviz/slam.rviz" />
+
+
+</launch>

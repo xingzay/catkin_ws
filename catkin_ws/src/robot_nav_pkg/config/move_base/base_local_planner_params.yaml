@@ -1,0 +1,46 @@
+TrajectoryPlannerROS:
+    odom_topic: robot/odom
+    holonomic_robot: false
+    # b. Velocity:
+    # the range of x velocity for the robot in m/s
+    max_vel_x: 0.25 #0.25 #0.2000
+    min_vel_x: 0.01 #0.0000
+    # the range of y velocity for the robot in m/s
+    max_vel_y: 0.0000
+    min_vel_y: 0.0000
+    # the range of translation velocity for the robot in m/s
+    max_vel_trans: 0.4000
+    min_vel_trans: 0.0000
+    # the range of rotational velocity for the robot in rad/s
+    # TODO: determine the maximum possible turning speed
+    max_vel_theta: 0.15 #0.15 #1.5236
+    min_vel_theta: -0.2 #0.001 #0.0000
+    # the absolute value of the minimum in-place rotational velocity the controller will explore:
+    # the value below equals to 5 degree / second:
+    min_in_place_vel_theta: 0.175
+    # c. Acceleration:
+    # the acceleration limit of the robot in the x direction
+    # the value below should be determined by dynamic performance test --  1.00m/s^2:
+    acc_lim_x: 0.1
+    # the acceleration limit of the robot in the y direction
+    acc_lim_y: 0.0000
+    # the acceleration limit of the robot for translational motion
+    # the value below should be determined by dynamic performance test --  1.00m/s^2:
+    acc_lim_trans: 0.7875
+    # the acceleration limit of the robot in the theta direction
+    # the value below should be determined by dynamic performance test --  3.00rad/s^2
+    acc_lim_theta: 0.25 #0.3491
+    # this value will only be used by MPC planner:
+    # the value below should be determined by dynamic performance test -- 10.60rad/s^@
+    acc_lim_drive_theta: 3 #9.0000
+
+    # Reach Goal Config:
+    #
+    # below what maximum velocity we consider the robot to be stopped in translation
+    trans_stopped_vel: 0.01
+    # below what maximum rotation velocity we consider the robot to be stopped in rotation
+    theta_stopped_vel: 0.01
+    # within what maximum distance we consider the robot to be in goal and fall back to standard DWA controller:
+    xy_goal_tolerance: 0.3 #0.10
+    # within what maximum angle difference we consider the robot to face goal direction:
+    yaw_goal_tolerance: 3.1415 #0.10

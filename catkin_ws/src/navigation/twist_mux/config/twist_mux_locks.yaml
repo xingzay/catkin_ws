@@ -1,0 +1,18 @@
+locks:
+-
+  name    : pause
+  topic   : pause_navigation
+  timeout : 0.0
+  # Same priority as joystick control, so it'll not block it.
+  priority: 100
+-
+  name    : loop_closure
+  topic   : stop_closing_loop
+  timeout : 0.0
+  priority: 200
+-
+  name    : joystick  
+  topic   : joy_priority # priority低于joy_priority的都被挡在门外不允许输出
+  timeout : 0.0
+  priority: 100
+

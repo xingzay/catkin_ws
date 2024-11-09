@@ -1,0 +1,17 @@
+transform_tolerance: 2.0
+obstacle_range: 3.5
+raytrace_range: 4.0
+
+footprint: [[-0.105, -0.105], [-0.105, 0.105], [0.041, 0.105], [0.041, -0.105]]
+
+#robot_radius: 0.105
+
+inflation_radius: 0.3
+footprint_padding: 0.03
+cost_scaling_factor: 10.0
+
+lethal_cost_threshold: 100
+
+map_type: costmap
+observation_sources: scan
+scan: {sensor_frame: base_scan, data_type: LaserScan, topic: scan, marking: true, clearing: true}

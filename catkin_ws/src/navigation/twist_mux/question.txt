@@ -1,0 +1,12 @@
+there have two cmd_vel : nav_cmd_vel joy_cmd_vel
+have three topics to twist_mux_node : /joy_priority /nav_cmd_vel /joy_cmd_vel
+
+echo /cmd_vel = echo /joy_cmd_vel 
+echo /nav_cmd_vel = NULL (guess no give navigation_goal)
+
+/joy_priority? use or kill
+
+test: 
+	pub true :
+        pub false : rospopic pub /joy_priority std_msgs/Bool "data:false"
+	kill:

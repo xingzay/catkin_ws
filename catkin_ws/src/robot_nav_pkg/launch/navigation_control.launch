@@ -1,0 +1,3 @@
+<launch>
+	<node name="navigation_control" pkg="robot_nav_pkg" type="navigation.py" output="screen"/>
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+	<!-- <node name="navFunc" pkg="robot_nav_pkg" type="navFunc.py" output="screen"/> -->
+	<node name="display_marker" pkg="robot_nav_pkg" type="display_marker.py" output="screen"/>
+</launch>
