@@ -17,8 +17,7 @@ navigation:
 
     navigation:(start_naviagtion.py)
 
-           
-                rosservice call /robotCmd command:"navigation"
+           rosservice call /robotCmd command:"navigation"
     
     <!-- 任务文件创建与删除  -->
      
@@ -26,7 +25,6 @@ navigation:
    
      taskMngmt:(taskMngmt.py)
 
-            
                rosservice call /taskMngmt command:"delete_patrol"
            
                rosservice call /taskMngmt command:"delete_emergency"
@@ -51,7 +49,7 @@ navigation:
            
                rosservice call /robotCmd command:"patrolling"
        
-     <!-- 该文件中有多点导航的暂停取消恢复程序，与单点导航暂停取消恢复逻辑不同，但话题名称相同，故不影响使用 -->
+               <!-- 该文件中有多点导航的暂停取消恢复程序，与单点导航暂停取消恢复逻辑不同，但话题名称相同，故不影响使用 -->
     
     Emergency(应急):  start_emergency.py
 
@@ -74,7 +72,7 @@ navigation:
     
    display_marker.py -- 巡检点、应急点、充电点、初始位置点的点位marker显示
     
-   dynamic_configure.py -- 话题名称/dynamic_reconfigure 动态调整max_vel_x,max_vel_x_backwards,max_vel_theta,acc_lim_x,acc_lim_theta参数 
+   dynamic_configure.py -- 话题名称/dynamic_reconfigure，动态调整max_vel_x,max_vel_x_backwards,max_vel_theta,acc_lim_x,acc_lim_theta参数 
 
 遇到问题：
     
