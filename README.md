@@ -7,15 +7,15 @@ ros1-file
 
 包含：
 
-     多点巡检任务、应急呼叫任务、充电任务、初始任务点
+     多点巡检任务(patrolling)、应急呼叫任务(emergency)、充电任务(charging)、初始任务点(initial)
 
-     多点导航、单点导航的暂停恢复取消
+     多点导航、单点导航的暂停恢复取消(navFunc)
 
-     任务点的显示marker
+     任务点的显示 marker
       
-     虚拟墙
+     虚拟墙 virtual_wall
      
-     twist_mux 手柄与导航的优先级
+     twist_mux: 手柄与导航的优先级
 
 统筹由状态机管理
 
