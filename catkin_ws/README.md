@@ -45,7 +45,7 @@ navigation:
    
      <!-- 执行任务命令 -->
    
-     Partolling(巡检):(start_patrolling.py)  
+    Partolling(巡检):(start_patrolling.py)  
            
                rosservice call /robotCmd command:"patrolling"
        
