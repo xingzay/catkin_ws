@@ -71,12 +71,15 @@ navigation:
                 <!-- 巡检任务单独采用一套暂停恢复取消逻辑 -->
     
    display_marker.py 
+
             巡检点、应急点、充电点、初始位置点的点位marker显示
     
    dynamic_configure.py 
+
             话题名称/dynamic_reconfigure，动态调整max_vel_x,max_vel_x_backwards,max_vel_theta,acc_lim_x,acc_lim_theta参数 
 
    pointcloud_to_laserscan 
+
             将3D多线激光雷达扫描到的点云信息压缩到一个2D平面内，对于障碍物与平面之间设置高度差，将障碍物与平面点云数据与区分开来，保留符合条件的坐标点，只保留X,Y坐标，投影到2D平面中，以此来识别到低矮障碍物
 
 遇到问题：
