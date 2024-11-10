@@ -74,6 +74,8 @@ navigation:
     
    dynamic_configure.py -- 话题名称/dynamic_reconfigure，动态调整max_vel_x,max_vel_x_backwards,max_vel_theta,acc_lim_x,acc_lim_theta参数 
 
+   pointcloud_to_laserscan -- 将3D多线激光雷达扫描到的点云信息压缩到一个2D平面内，对于障碍物与平面之间设置高度差，将障碍物与平面点云数据与区分开来，保留符合条件的坐标点，只保留X,Y坐标，投影到2D平面中，以此来识别到低矮障碍物
+
 遇到问题：
     
         1、动态障碍物存留残影：修改costmap_common_params.yaml文件中的obstacle_range与raytrace_range参数，修改navigation/costmap 2dplugins/obstacle layer.cpp中laserScanValidInfCallback函数的激光雷达返回值的判定条件
